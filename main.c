@@ -41,7 +41,10 @@ int main()
     int bytesCount=0;
     while ((bytesCount=recv(clientSocket,buffer, sizeof(buffer),0))>0)
     {
-        fwrite(buffer, 1, bytesCount, stdout);
+        for (short i=0;i<bytesCount;++i)
+        {
+            printf("%c",buffer[i]);
+        }
     }
     closesocket(clientSocket);
     WSACleanup();
